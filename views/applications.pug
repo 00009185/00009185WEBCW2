@@ -1,0 +1,10 @@
+extends layout.pug 
+
+block content 
+  .container 
+    h1 All applications 
+
+    each application in applications
+      .application-wrapper
+        a.app(href=`/applications/${ application.id }`) #{application.title} 
+        a.delete(href='#') delete  

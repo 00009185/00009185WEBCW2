@@ -1,0 +1,21 @@
+extends layout.pug 
+
+block content
+  .container 
+    h1.create-page Application Form 
+      h3 Please fill in your details below!
+
+      if error 
+        p.error You did some error. TRY AGAIN!
+
+      if success 
+        p.success Successfully Saved!
+        
+    form.form(action.="/create" method='POST')
+      label Name
+      input.input(type="text" name="title")
+
+      label Additional Information
+      textarea.input(type="text" name="description")
+
+      button.btn Add Applicantion

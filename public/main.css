@@ -1,6 +1,6 @@
 :root {
     font-size: 18px;
-    color: green;
+    color:aqua;
     background-image: url(/static/images/2053097.png);
 }
 
@@ -14,7 +14,7 @@ a {
     color: inherit;
 }
 a:hover {
-    color: lawngreen;
+    color: orange;
 }
 .navbar{
     max-width: 1000px;
@@ -22,12 +22,13 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    border-bottom: 1px dotted #ccc;
+    border-bottom: 1px dotted gray;
     padding: 10px;
 }
 .nav a {
     display: inline-block;
     padding: 5px 10px;
+    font-size: 1.1rem;
 }
 
 .container {
@@ -37,7 +38,7 @@ a:hover {
 }
 
 .intro-msg {
-    padding: 150px 0 30px 0;
+    padding: 110px 0 30px 0;
     font-size: 2rem;
     max-width: 60%;
 }
@@ -45,10 +46,85 @@ a:hover {
 .featured {
     display: inline-block;
     padding: 10px 20px;
-    background-color:green;
-    color: wheat;
+    background-color: orange;
+    color: aqua;
     border-radius: 5px;
+    font-size: 20px;
 }
 .featured:hover {
     color: white;
+}
+
+/* create page design*/
+.create-page {
+    margin-bottom: 15px;
+}
+h3 {
+    color: orange;
+    margin-bottom: 10px;
+}
+.form {
+    margin-left: 130px;
+    max-width: 60%;
+}
+
+.input {
+    width: 100%;
+    display: block;
+    padding: 10px;
+    font-size: 1.3rem;
+    font-family: inherit;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: orange;
+    color: aqua;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-family: inherit;
+}
+.btn:hover {
+    color: white;
+}
+
+/*applications list design*/
+
+.application-wrapper {
+    max-width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px dotted #ccc;
+}
+.app {
+    font-size: 1.1rem;
+}
+.delete{
+    display: inline-block;
+    padding: 5px 10px;
+    background: orange;
+    color:white;
+}
+
+.error {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid red;
+    font-size: 1.1rem;
+    color: red;
+}
+
+.success {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid green;
+    font-size: 1.1rem;
+    color: green;
 }
