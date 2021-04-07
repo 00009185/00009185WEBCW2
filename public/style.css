@@ -33,19 +33,22 @@ a:hover {
 
 .container {
     max-width: 1000px;
-    margin: 0 auto;
+    background-color: rgb(89, 89, 104);
+    border-radius: 5px;
+    margin: 70px 100px;
     padding: 10px;
 }
 
 .intro-msg {
-    padding: 110px 0 30px 0;
+    padding: 30px 0 30px 0;
     font-size: 2rem;
-    max-width: 60%;
+    max-width: 100%;
 }
 
 .featured {
     display: inline-block;
     padding: 10px 20px;
+    margin-left: 950px;
     background-color: orange;
     color: aqua;
     border-radius: 5px;
@@ -58,6 +61,7 @@ a:hover {
 /* create page design*/
 .create-page {
     margin-bottom: 15px;
+    margin-left: 300px;
 }
 h3 {
     color: orange;
@@ -96,7 +100,7 @@ h3 {
 /*applications list design*/
 
 .application-wrapper {
-    max-width: 60%;
+    max-width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -129,5 +133,5 @@ h3 {
     padding: 10px;
     border: 1px solid green;
     font-size: 1.1rem;
-    color: green;
+    color: lightgreen;
 }

@@ -3,7 +3,7 @@ extends layout.pug
 block content
   .container 
     h1.create-page Application Form 
-      h3 Please fill in your details below!
+      h3 Please fill in!
 
       if error 
         p.error You did some error. TRY AGAIN!
@@ -11,17 +11,16 @@ block content
       if success 
         p.success Successfully Saved!
       
-      if deleted 
-        p.success Successfully Deleted!
+
         
     form.form(action.="/create" method='POST')
       label Full Name 
-      input.input(type="text" name="title")
+      input.input(type="text" placeholder ="example:John Smith" name="title")
 
-      label [E-mail]
-      input.input(type="mail" name="Email")
+      label E-mail
+      input.input(type="text" placeholder ="example@gmail/mail.com/ru" name="email")
 
       label Position for Applying
-      textarea.input(type="text" name="description")
+      textarea.input(type="text" placeholder ="example:Tester" name="description")
 
       button.btn Add Applicantion

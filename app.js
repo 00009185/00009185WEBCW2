@@ -1,4 +1,3 @@
-const { application } = require('express')
 const express = require('express')
 const app = express()
 
@@ -22,7 +21,7 @@ app.post('/create', (req, res) => {
     const email = req.body.email
     const description = req.body.description
 
-    if (title.trim() === '' && description.trim() === '' && email.trim() === '' && email.includes("@")) {
+    if (title.trim() === '' && description.trim() === '' && email.trim() === '') {
         res.render('create', { error: true })
     }   else {
         fs.readFile('./data/applications.json', (err, data) => {
@@ -48,6 +47,15 @@ app.post('/create', (req, res) => {
 
 })
 
+app.get('/api/v1/applications', (req, res) => {
+    fs.readFile('./data/applications.json', (err, data) => {
+        if (err) throw err
+
+        const applications = JSON.parse(data)
+
+        res.json(applications)
+    })
+})
 
 app.get('/applications', (req, res) => {
     fs.readFile('./data/applications.json', (err, data) => {
@@ -86,7 +94,7 @@ app.get('/applications/:id/delete', (req, res) => {
       console.log(filteredApplications)
       fs.writeFile('./data/applications.json', JSON.stringify(filteredApplications), err => {
           if (err) throw err
-         res.render('applications', {  applications: filteredApplications, deleted: true})
+          res.render('applications', {  applications: filteredApplications, deleted: true })
       })
     })
   })

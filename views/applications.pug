@@ -3,6 +3,9 @@ extends layout.pug
 block content 
   .container 
     h1 All applications 
+    
+    if deleted 
+      p.success Successfully Deleted!
 
     each application in applications
       .application-wrapper
