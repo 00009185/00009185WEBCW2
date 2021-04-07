@@ -10,12 +10,18 @@ block content
 
       if success 
         p.success Successfully Saved!
+      
+      if deleted 
+        p.success Successfully Deleted!
         
     form.form(action.="/create" method='POST')
-      label Name
+      label Full Name 
       input.input(type="text" name="title")
 
-      label Additional Information
+      label [E-mail]
+      input.input(type="mail" name="Email")
+
+      label Position for Applying
       textarea.input(type="text" name="description")
 
       button.btn Add Applicantion

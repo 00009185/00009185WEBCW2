@@ -1,3 +1,4 @@
+const { application } = require('express')
 const express = require('express')
 const app = express()
 
@@ -18,9 +19,10 @@ app.get('/create', (req, res) => {
 
 app.post('/create', (req, res) => {
     const title = req.body.title
+    const email = req.body.email
     const description = req.body.description
 
-    if (title.trim() === '' && description.trim() === '') {
+    if (title.trim() === '' && description.trim() === '' && email.trim() === '' && email.includes("@")) {
         res.render('create', { error: true })
     }   else {
         fs.readFile('./data/applications.json', (err, data) => {
@@ -32,6 +34,7 @@ app.post('/create', (req, res) => {
           applications.push({
               id: id (),
               title: title,
+              email: email,
               description: description,
           })
 
@@ -69,6 +72,24 @@ app.get('/applications/:id', (req, res) => {
         res.render('detail', { application: application })
     })
 })
+
+app.get('/applications/:id/delete', (req, res) => {
+    const id = req.params.id
+  
+    fs.readFile('./data/applications.json', (err,data) => {
+      if (err) throw err
+  
+      const applications = JSON.parse(data)
+  
+      const filteredApplications = applications.filter(application => application.id !== id)
+  
+      console.log(filteredApplications)
+      fs.writeFile('./data/applications.json', JSON.stringify(filteredApplications), err => {
+          if (err) throw err
+         res.render('applications', {  applications: filteredApplications, deleted: true})
+      })
+    })
+  })
 
 app.listen(5000, err => {
     if (err) console.log(err)
